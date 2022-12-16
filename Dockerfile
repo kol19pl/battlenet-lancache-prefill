@@ -16,9 +16,11 @@ ENV \
         LANG=en_US.UTF-8 \
         LANGUAGE=en_US:en \
         LC_ALL=en_US.UTF-8 \
-        TERM=xterm-256color
+        TERM=xterm-256color \
+        PRODUCTSLIST= \
+        ADDFLAG=
 
 COPY  /publish/BattleNetPrefill /
 RUN chmod +x /BattleNetPrefill
 
-ENTRYPOINT [ "/BattleNetPrefill" ]
+ENTRYPOINT  /BattleNetPrefill  prefill --products $PRODUCTSLIST $ADDFLAG
